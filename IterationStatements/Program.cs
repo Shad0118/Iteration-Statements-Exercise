@@ -52,35 +52,41 @@
                 double numOne = double.Parse(Console.ReadLine());
                 Console.WriteLine("2nd number : ");
                 double numTwo = double.Parse(Console.ReadLine());
-                EqualNumbers(numOne, numTwo);
+                var result = EqualNumbers(numOne, numTwo);
+                Console.WriteLine(result ? $"{numOne} and {numTwo} are equal" : $"{numOne} and {numTwo} are not equal");
                 break;
                 
                 case "D" :
                 //
                 Console.WriteLine("Enter a number to find out if it's Odd or Even : ");
                 int givenNum = int.Parse(Console.ReadLine());
-                OddEven(givenNum);
+                var resultTwo = OddEven(givenNum);
+                Console.WriteLine(resultTwo ? $"{givenNum} is an even number" :  $"{givenNum} is an odd number");
                 break;
                 
                 case "E" :
                 //
                 Console.WriteLine("Enter a number  to find out if its positive or negetive");
                 int numThree = int.Parse(Console.ReadLine());
-                PositiveNegetive(numThree);
+                var resultThree =  PositiveNegetive(numThree);
+                Console.WriteLine(resultThree ? $"{numThree} is a positive number" : $"{numThree} is a negative number");
                 break;
                 
                 case "F" :
                 //
                 Console.WriteLine("Please enter your age to find out your eligibility for Votting : ");
                 int numFour = int.Parse(Console.ReadLine());
-                LegalVoteAge(numFour);
+                var resultFour = LegalVoteAge(numFour);
+                int diff = 18 - numFour;
+                Console.WriteLine(resultFour ? "You are eligible to vote" : $"You are not old enough to vote try again after {diff} years !");
                 break;
                 
                 case "G" :
                 //
                 Console.WriteLine("Enter a number to see if  it's in the range between 10 to -10");
                 int numFive = int.Parse(Console.ReadLine());
-                NumberMatch(numFive);
+                var  resultFive = NumberMatch(numFive);
+                Console.WriteLine(resultFive ? $"It's a match! {numFive} is in the range (-10 to 10)" : $"Sorry ! {numFive} is not in the range (-10 to 10)");
                 break;
                 
                 case "H" :
@@ -121,75 +127,29 @@
             }
         }
 
-        public static void EqualNumbers(double a, double b)
+        public static bool EqualNumbers(double a, double b)
         {
-            if (a == b)
-            {
-                Console.WriteLine("These numbers are equal\n");
-            }
-            else
-            {
-                Console.WriteLine("These numbers are not equal\n");
-            }
+            return a == b;
         }
 
-        public static void OddEven(int a)
+        public static bool OddEven(int a)
         {
-            if (a % 2 == 0)
-            {
-                Console.WriteLine("It's an even number\n");
-            }
-            else
-            {
-                Console.WriteLine("It's an odd number\n");
-            }
+            return a % 2 == 0;
         }
 
-        public static void PositiveNegetive(int a)
+        public static bool PositiveNegetive(int a)
         {
-            if (a > 0)
-            {
-                Console.WriteLine("It's a Positive number");
-            }
-            else if (a < 0)
-            {
-                Console.WriteLine("It's a Negative number");
-            }
-            else
-            {
-                Console.WriteLine("THE NUMBER IS 0");
-            }
+            return a > 0;
         }
 
-        public static void LegalVoteAge(int a)
+        public static bool LegalVoteAge(int a)
         {
-            if (a >= 18)
-            {
-                Console.WriteLine("You are eligible to vote");
-            }
-            else if (a < 18)
-            {
-                int diff = 18 - a;
-                Console.WriteLine($"You are not old enough to vote try again after {diff} years !");
-            }
+            return a >= 18;
         }
 
-        public static void NumberMatch(int a)
+        public static bool NumberMatch(int a)
         {
-            List<int> collector = new List<int>();
-            for (int i = 10; i >= -10; i--)
-            {
-                collector.Add(i);
-            }
-
-            if (collector.Contains(a))
-            {
-                Console.WriteLine("It's a Match");
-            }
-            else
-            {
-                Console.WriteLine("It's not a Match");
-            }
+            return a >= -10 && a <= 10;
         }
 
         public static void MultiTable(int a)
