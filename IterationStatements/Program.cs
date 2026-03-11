@@ -40,7 +40,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Please enter an alphabet between (A to H) to execute the following options : ");
-            Console.WriteLine(" A. To print numbers between 1000 to -1000\n B. To print numbers between 3 to 999 with increment of 3\n C. To know the equality between two numbers\n D. To find out if a number is even or odd\n E. To find out if a number is positive or negetive\n F. To find out if you are eligible for vote or not\n G. To find out if your number is ranged between 10 to -10\n H. To know the multiplication table of 1 to 12 ");
+            Console.WriteLine(" A. To print numbers between 1000 to -1000\n B. To print numbers between 3 to 999 with increment of 3\n C. To know the equality between two numbers\n D. To find out if a number is even or odd\n E. To find out if a number is positive or negative\n F. To find out if you are eligible for vote or not\n G. To find out if your number is ranged between 10 to -10\n H. To know the multiplication table of 1 to 12 ");
             string order = Console.ReadLine().ToUpper();
             switch (order)
             {
@@ -66,10 +66,21 @@
                 
                 case "E" :
                 //
-                Console.WriteLine("Enter a number  to find out if its positive or negetive");
+                Console.WriteLine("Enter a number  to find out if its positive or negative");
                 int numThree = int.Parse(Console.ReadLine());
-                var resultThree =  PositiveNegetive(numThree);
-                Console.WriteLine(resultThree ? $"{numThree} is a positive number" : $"{numThree} is a negative number");
+                var resultThree =  PositiveNegative(numThree);
+                if (resultThree)
+                {
+                    Console.WriteLine($"{numThree} is a positive number");
+                }
+                else if (numThree == 0)
+                {
+                    Console.WriteLine("The number is 0");
+                }
+                else
+                {
+                    Console.WriteLine($"{numThree} is a negative number");
+                }
                 break;
                 
                 case "F" :
@@ -137,7 +148,7 @@
             return a % 2 == 0;
         }
 
-        public static bool PositiveNegetive(int a)
+        public static bool PositiveNegative(int a)
         {
             return a > 0;
         }
@@ -154,7 +165,7 @@
 
         public static void MultiTable(int a)
         {
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 int result = a * i;
                 Console.WriteLine($"{a} X {i} = {result}");
