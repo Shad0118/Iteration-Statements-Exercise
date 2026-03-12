@@ -68,24 +68,12 @@
                 //
                 Console.WriteLine("Enter a number  to find out if its positive or negative");
                 int numThree = int.Parse(Console.ReadLine());
-                var resultThree =  PositiveNegative(numThree);
-                if (resultThree)
-                {
-                    Console.WriteLine($"{numThree} is a positive number");
-                }
-                else if (numThree == 0)
-                {
-                    Console.WriteLine("The number is 0");
-                }
-                else
-                {
-                    Console.WriteLine($"{numThree} is a negative number");
-                }
+                Console.WriteLine(PositiveNegative(numThree));
                 break;
                 
                 case "F" :
                 //
-                Console.WriteLine("Please enter your age to find out your eligibility for Votting : ");
+                Console.WriteLine("Please enter your age to find out your eligibility for Voting : ");
                 int numFour = int.Parse(Console.ReadLine());
                 var resultFour = LegalVoteAge(numFour);
                 int diff = 18 - numFour;
@@ -110,7 +98,7 @@
                 //
                 case "A" :
                 Console.WriteLine("Numbers between 1000 and -1000 are : ");
-                PositiveToNegetive();
+                NumberCount();
                 break;
                 //
                 case "B" :
@@ -122,7 +110,7 @@
                     break;
             }
         }
-        public static void PositiveToNegetive()
+        public static void NumberCount()
         {
             for (int i = 1000; i >= -1000; i--)
             {
@@ -148,9 +136,20 @@
             return a % 2 == 0;
         }
 
-        public static bool PositiveNegative(int a)
+        public static string PositiveNegative(int a)
         {
-            return a > 0;
+            if (a > 0)
+            {
+                return $"{a} is a positive number";
+            }
+            else if (a < 0)
+            {
+                return $"{a} is a negative number";
+            }
+            else
+            {
+                return "THE NUMBER IS 0";
+            }
         }
 
         public static bool LegalVoteAge(int a)
@@ -173,3 +172,5 @@
         }
     }
 }
+
+
